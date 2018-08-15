@@ -43,6 +43,7 @@ with open('config.json') as config_f:
 for name in ad:
     data = [] 
 
+    #############################################################
     #Add FAs
     idx=0
     all = []
@@ -56,10 +57,11 @@ for name in ad:
             "y": profile.tolist(),
             "name": config["_inputs"][idx]["meta"]["subject"],
             "type": "scatter",
+            "xaxis": "x_fa",
+            "yaxis": "y_fa",
             "opacity": 0.3
         })
         idx+=1
-
     data.append({
         #"x": len(all[0]),
         "y": numpy.mean(all, axis=0).tolist(),
@@ -72,19 +74,72 @@ for name in ad:
         "type": "scatter",
         "line": {
             "color": "black",
-        }
+        },
+        "xaxis": "x_fa",
+        "yaxis": "y_fa",
     })
 
-    #generate heatmap from density std/mean
+    #############################################################
+    #Add MDs
+    idx=0
+    all = []
+    for profile in md[name]:
+        all.append(profile)
+        #replace NaN with 0
+        where_are_NaNs = numpy.isnan(profile)
+        profile[where_are_NaNs] = 0
+        data.append({
+            #"x": len(profile),
+            "y": profile.tolist(),
+            "name": config["_inputs"][idx]["meta"]["subject"],
+            "type": "scatter",
+            "xaxis": "x_md",
+            "yaxis": "y_md",
+            "opacity": 0.3
+        })
+        idx+=1
+    data.append({
+        #"x": len(all[0]),
+        "y": numpy.mean(all, axis=0).tolist(),
+        #"error_y": {
+        #    "type": "data",
+            "array": numpy.std(all, axis=0).tolist(),
+        #    "visislbe": True,
+        #},
+        "name": "mean",
+        "type": "scatter",
+        "line": {
+            "color": "black",
+        },
+        "xaxis": "x_md",
+        "yaxis": "y_md",
+    })
+
+    ##########################################################################
     plot = {}
     plot["type"] = "plotly"
-    plot["name"] = name+" FA"
+    plot["name"] = name
     plot["data"] = data
     plot["layout"] = {
+        "xaxis": {
+            "domain": [0, 0.45],
+            "anchor": "x_fa",
+        },
         "yaxis": {
-            #"autorange": "reversed"
+            "domain": [0, 0.45],
             "title": "FA",
-        }
+            "anchor": "y_fa",
+        },
+
+        "xaxis2": {
+            "domain": [0.55, 1],
+            "anchor": "x_md",
+        },
+        "yaxis2": {
+            "domain": [0, 0.45],
+            "title": "FA",
+            "anchor": "y_md",
+        },
     }
     plots.append(plot)
 
