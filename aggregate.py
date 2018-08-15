@@ -24,15 +24,21 @@ with open('config.json') as config_f:
             fullname = os.path.basename(path)
             name = os.path.splitext(fullname)[0]
             profile = numpy.genfromtxt(path, skip_header=1, delimiter=',')
+
+            #print(name)
+            #print(profile[:,1])
+
             if not name in ad:
                 ad[name] = []
                 fa[name] = []
                 md[name] = []
                 rd[name] = []
-            ad[name].append(profile[1,:])
-            fa[name].append(profile[3,:])
-            md[name].append(profile[5,:])
-            rd[name].append(profile[7,:])
+            ad[name].append(profile[:,1])
+            fa[name].append(profile[:,3])
+            md[name].append(profile[:,5])
+            rd[name].append(profile[:,7])
+
+            #sys.exit(1)
 
 data = [] 
 
@@ -53,6 +59,7 @@ for name in ad:
         data.append({
             "x": len(profile),
             "y": profile.tolist(),
+            "name": name,
             "type": "scatter"
         })
 
