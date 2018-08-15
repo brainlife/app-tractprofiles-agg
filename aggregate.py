@@ -20,7 +20,7 @@ with open('config.json') as config_f:
     rd = {}
     for output_dir in config["outputs"]:
         print("finding csv in ", output_dir)
-        for path in glob.glob(output_dir+"/profiles/*.csv"):
+        for path in glob.glob(output_dir+"/*.csv"):
             fullname = os.path.basename(path)
             name = os.path.splitext(fullname)[0]
             profile = numpy.genfromtxt(path, skip_header=1, delimiter=',')
