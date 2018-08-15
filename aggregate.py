@@ -40,11 +40,9 @@ with open('config.json') as config_f:
 
             #sys.exit(1)
 
+###################################################################################################
 for name in ad:
     data = [] 
-
-    #############################################################
-    #Add FAs
     idx=0
     all = []
     for profile in fa[name]:
@@ -87,7 +85,9 @@ for name in ad:
     }
     plots.append(plot)
 
-    #Add MDs
+###################################################################################################
+for name in md:
+    data = [] 
     idx=0
     all = []
     for profile in md[name]:
