@@ -81,6 +81,7 @@ for name in ad:
     plot["layout"] = {
         "yaxis": {
             "title": "FA",
+            "range": [0, 0.5],
         },
     }
     plots.append(plot)
@@ -128,6 +129,7 @@ for name in md:
             #"domain": [0, 0.45],
             "title": "MD",
             #"anchor": "y_fa",
+            "range": [0, 0.5],
         },
     }
     plots.append(plot)
