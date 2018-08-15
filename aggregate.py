@@ -63,7 +63,7 @@ for name in ad:
             "y": profile.tolist(),
             "name": "output"+str(idx),
             "type": "scatter",
-            "opacity": 0.5
+            "opacity": 0.3
         })
         idx+=1
 
@@ -77,6 +77,9 @@ for name in ad:
         #},
         "name": "mean",
         "type": "scatter",
+        "line": {
+            "color": "black",
+        }
     })
 
     #generate heatmap from density std/mean
