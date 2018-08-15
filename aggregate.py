@@ -74,7 +74,7 @@ for name in ad:
         "y": numpy.mean(all, axis=0).tolist(),
         "error_y": {
             "type": "data",
-            "array": numpy.std(all, axix=0).tolist(),
+            "array": numpy.std(all, axis=0).tolist(),
             "visislbe": True,
         },
         "name": "mean",
