@@ -45,6 +45,11 @@ layout = {
 for name in ad:
     profiles = ad[name]
     for profile in profiles:
+
+        #replace NaN with 0
+        where_are_NaNs = numpy.isnan(profile)
+        profile[where_are_NaNs] = 0
+
         data.append({
             "x": len(profile),
             "y": profile.tolist(),
