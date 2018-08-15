@@ -40,7 +40,6 @@ with open('config.json') as config_f:
 
             #sys.exit(1)
 
-
 layout = {
 #    "yaxis": {
 #        "autorange": "reversed"
@@ -61,7 +60,7 @@ for name in ad:
         data.append({
             #"x": len(profile),
             "y": profile.tolist(),
-            "name": "output"+str(idx),
+            "name": config["_inputs"][idx]["meta"]["subject"],
             "type": "scatter",
             "opacity": 0.3
         })

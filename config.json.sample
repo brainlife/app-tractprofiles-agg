@@ -1,3 +1,11 @@
 {
-    "outputs": [ "output1/profiles", "output2/profiles" ]
+    "outputs": [ "output1/profiles", "output2/profiles" ],
+    "_inputs": [
+        {
+            "meta": { "subject": "0001"}
+        },
+        {
+            "meta": { "subject": "0002"}
+        }
+    ]
 }
