@@ -48,17 +48,18 @@ layout = {
 }
 
 for name in ad:
-    profiles = ad[name]
     data = [] 
 
-    #add all profiles
+    #Add FAs
     idx=0
-    for profile in profiles:
+    all = []
+    for profile in fa[name]:
+        all.append(profile)
         #replace NaN with 0
         where_are_NaNs = numpy.isnan(profile)
         profile[where_are_NaNs] = 0
         data.append({
-            "x": len(profile),
+            #"x": len(profile),
             "y": profile.tolist(),
             "name": "output"+str(idx),
             "type": "scatter",
@@ -68,10 +69,17 @@ for name in ad:
         })
         idx+=1
 
+    data.append({
+        #"x": len(all[0]),
+        "y": numpy.mean(all, axis=0).tolist(),
+        "name": "mean",
+        "type": "scatter",
+    })
+
     #generate heatmap from density std/mean
     plot = {}
     plot["type"] = "plotly"
-    plot["name"] = name
+    plot["name"] = name+" FA"
     plot["data"] = data
     plot["layout"] = layout
     plots.append(plot)
