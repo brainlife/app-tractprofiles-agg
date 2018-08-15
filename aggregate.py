@@ -57,7 +57,7 @@ for name in ad:
             "y": profile.tolist(),
             "name": config["_inputs"][idx]["meta"]["subject"],
             "type": "scatter",
-            "yaxis": "y_fa",
+            #"yaxis": "y_fa",
             "opacity": 0.3
         })
         idx+=1
@@ -74,10 +74,19 @@ for name in ad:
         "line": {
             "color": "black",
         },
-        "yaxis": "y_fa",
+        #"yaxis": "y_fa",
     })
+    plot = {}
+    plot["type"] = "plotly"
+    plot["name"] = name+" FA"
+    plot["data"] = data
+    plot["layout"] = {
+        "yaxis": {
+            "title": "FA",
+        },
+    }
+    plots.append(plot)
 
-    #############################################################
     #Add MDs
     idx=0
     all = []
@@ -91,7 +100,7 @@ for name in ad:
             "y": profile.tolist(),
             "name": config["_inputs"][idx]["meta"]["subject"],
             "type": "scatter",
-            "yaxis": "y_md",
+            #"yaxis": "y_md",
             "opacity": 0.3
         })
         idx+=1
@@ -108,25 +117,17 @@ for name in ad:
         "line": {
             "color": "black",
         },
-        "yaxis": "y_md",
+        #"yaxis": "y_md",
     })
-
-    ##########################################################################
     plot = {}
     plot["type"] = "plotly"
-    plot["name"] = name
+    plot["name"] = name+" MD"
     plot["data"] = data
     plot["layout"] = {
         "yaxis": {
-            "domain": [0, 0.45],
-            "title": "FA",
-            "anchor": "y_fa",
-        },
-
-        "yaxis2": {
-            "domain": [0.55, 1],
+            #"domain": [0, 0.45],
             "title": "MD",
-            "anchor": "y_md",
+            #"anchor": "y_fa",
         },
     }
     plots.append(plot)
