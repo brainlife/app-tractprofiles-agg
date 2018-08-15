@@ -57,7 +57,6 @@ for name in ad:
             "y": profile.tolist(),
             "name": config["_inputs"][idx]["meta"]["subject"],
             "type": "scatter",
-            "xaxis": "x_fa",
             "yaxis": "y_fa",
             "opacity": 0.3
         })
@@ -75,7 +74,6 @@ for name in ad:
         "line": {
             "color": "black",
         },
-        "xaxis": "x_fa",
         "yaxis": "y_fa",
     })
 
@@ -93,7 +91,6 @@ for name in ad:
             "y": profile.tolist(),
             "name": config["_inputs"][idx]["meta"]["subject"],
             "type": "scatter",
-            "xaxis": "x_md",
             "yaxis": "y_md",
             "opacity": 0.3
         })
@@ -111,7 +108,6 @@ for name in ad:
         "line": {
             "color": "black",
         },
-        "xaxis": "x_md",
         "yaxis": "y_md",
     })
 
@@ -121,23 +117,15 @@ for name in ad:
     plot["name"] = name
     plot["data"] = data
     plot["layout"] = {
-        "xaxis": {
-            "domain": [0, 0.45],
-            "anchor": "x_fa",
-        },
         "yaxis": {
             "domain": [0, 0.45],
             "title": "FA",
             "anchor": "y_fa",
         },
 
-        "xaxis2": {
-            "domain": [0.55, 1],
-            "anchor": "x_md",
-        },
         "yaxis2": {
-            "domain": [0, 0.45],
-            "title": "FA",
+            "domain": [0.55, 1],
+            "title": "MD",
             "anchor": "y_md",
         },
     }
