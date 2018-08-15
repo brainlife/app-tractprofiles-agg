@@ -72,6 +72,11 @@ for name in ad:
     data.append({
         #"x": len(all[0]),
         "y": numpy.mean(all, axis=0).tolist(),
+        "error_y": {
+            "type": "data",
+            "array": numpy.std(all, axix=0).tolist(),
+            "visislbe": True,
+        },
         "name": "mean",
         "type": "scatter",
     })
