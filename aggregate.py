@@ -40,7 +40,6 @@ with open('config.json') as config_f:
 
             #sys.exit(1)
 
-data = [] 
 
 layout = {
 #    "yaxis": {
@@ -50,26 +49,29 @@ layout = {
 
 for name in ad:
     profiles = ad[name]
-    for profile in profiles:
+    data = [] 
 
+    #add all profiles
+    idx=0
+    for profile in profiles:
         #replace NaN with 0
         where_are_NaNs = numpy.isnan(profile)
         profile[where_are_NaNs] = 0
-
         data.append({
             "x": len(profile),
             "y": profile.tolist(),
-            "name": name,
+            "name": "output"+str(idx),
             "type": "scatter"
         })
+        idx+=1
 
-#generate heatmap from density std/mean
-plot = {}
-plot["type"] = "plotly"
-plot["name"] = "profiles"
-plot["data"] = data
-plot["layout"] = layout
-plots.append(plot)
+    #generate heatmap from density std/mean
+    plot = {}
+    plot["type"] = "plotly"
+    plot["name"] = name
+    plot["data"] = data
+    plot["layout"] = layout
+    plots.append(plot)
 
 #save product.json
 product = {}
