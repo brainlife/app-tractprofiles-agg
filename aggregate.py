@@ -63,20 +63,18 @@ for name in ad:
             "y": profile.tolist(),
             "name": "output"+str(idx),
             "type": "scatter",
-            "marker": {
-                "opacity": 0.5
-            }
+            "opacity": 0.5
         })
         idx+=1
 
     data.append({
         #"x": len(all[0]),
         "y": numpy.mean(all, axis=0).tolist(),
-        "error_y": {
-            "type": "data",
+        #"error_y": {
+        #    "type": "data",
             "array": numpy.std(all, axis=0).tolist(),
-            "visislbe": True,
-        },
+        #    "visislbe": True,
+        #},
         "name": "mean",
         "type": "scatter",
     })
