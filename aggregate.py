@@ -40,12 +40,6 @@ with open('config.json') as config_f:
 
             #sys.exit(1)
 
-layout = {
-#    "yaxis": {
-#        "autorange": "reversed"
-#    }
-}
-
 for name in ad:
     data = [] 
 
@@ -86,7 +80,12 @@ for name in ad:
     plot["type"] = "plotly"
     plot["name"] = name+" FA"
     plot["data"] = data
-    plot["layout"] = layout
+    plot["layout"] = {
+        "yaxis": {
+            #"autorange": "reversed"
+            title: "FA",
+        }
+    }
     plots.append(plot)
 
 #save product.json
