@@ -83,7 +83,7 @@ for name in ad:
     plot["layout"] = {
         "yaxis": {
             #"autorange": "reversed"
-            title: "FA",
+            "title": "FA",
         }
     }
     plots.append(plot)
