@@ -61,7 +61,10 @@ for name in ad:
             "x": len(profile),
             "y": profile.tolist(),
             "name": "output"+str(idx),
-            "type": "scatter"
+            "type": "scatter",
+            "marker": {
+                "opacity": 0.5
+            }
         })
         idx+=1
 
