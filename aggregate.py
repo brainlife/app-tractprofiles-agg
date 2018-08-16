@@ -33,10 +33,10 @@ with open('config.json') as config_f:
                 fa[name] = []
                 md[name] = []
                 rd[name] = []
-            ad[name].append(profile[:,1])
-            fa[name].append(profile[:,3])
-            md[name].append(profile[:,5])
-            rd[name].append(profile[:,7])
+            ad[name].append(profile[:,0])
+            fa[name].append(profile[:,2])
+            md[name].append(profile[:,4])
+            rd[name].append(profile[:,6])
 
             #sys.exit(1)
 
