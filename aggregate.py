@@ -55,6 +55,11 @@ for name in ad:
 
     data.append({
         "y": numpy.round(numpy.mean(all, axis=0), 4).tolist(),
+        "error_y": {
+            "type": "data",
+            "array": numpy.round(numpy.std(all, axis=0), 6).tolist(),
+            "visible": True,
+        },
         "name": "mean",
         "type": "scatter",
         "line": {
@@ -93,7 +98,11 @@ for name in md:
 
     data.append({
         "y": numpy.round(numpy.mean(all, axis=0), 4).tolist(),
-        "array": numpy.round(numpy.std(all, axis=0), 6).tolist(),
+        "error_y": {
+            "type": "data",
+            "array": numpy.round(numpy.std(all, axis=0), 6).tolist(),
+            "visible": True,
+        },
         "name": "mean",
         "type": "scatter",
         "line": {
