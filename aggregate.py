@@ -45,13 +45,13 @@ for name in ad:
         #replace NaN with 0
         where_are_NaNs = numpy.isnan(profile)
         profile[where_are_NaNs] = 0
-        data.append({
-            "y": numpy.round(profile, 4).tolist(),
-            "name": config["_inputs"][idx]["meta"]["subject"],
-            "type": "scatter",
-            "opacity": 0.3
-        })
-        idx+=1
+        #data.append({
+        #    "y": numpy.round(profile, 4).tolist(),
+        #    "name": config["_inputs"][idx]["meta"]["subject"],
+        #    "type": "scatter",
+        #    "opacity": 0.3
+        #})
+        #idx+=1
 
     data.append({
         "y": numpy.round(numpy.mean(all, axis=0), 4).tolist(),
@@ -83,13 +83,13 @@ for name in md:
         #replace NaN with 0
         where_are_NaNs = numpy.isnan(profile)
         profile[where_are_NaNs] = 0
-        data.append({
-            "y": numpy.round(profile, 4).tolist(),
-            "name": config["_inputs"][idx]["meta"]["subject"],
-            "type": "scatter",
-            "opacity": 0.3
-        })
-        idx+=1
+        #data.append({
+        #    "y": numpy.round(profile, 4).tolist(),
+        #    "name": config["_inputs"][idx]["meta"]["subject"],
+        #    "type": "scatter",
+        #    "opacity": 0.3
+        #})
+        #idx+=1
 
     data.append({
         "y": numpy.round(numpy.mean(all, axis=0), 4).tolist(),
