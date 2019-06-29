@@ -25,9 +25,6 @@ with open('config.json') as config_f:
             name = os.path.splitext(fullname)[0]
             profile = numpy.genfromtxt(path, skip_header=1, delimiter=',')
 
-            #print(name)
-            #print(profile[:,1])
-
             if not name in ad:
                 ad[name] = []
                 fa[name] = []
@@ -37,8 +34,6 @@ with open('config.json') as config_f:
             fa[name].append(profile[:,2])
             md[name].append(profile[:,4])
             rd[name].append(profile[:,6])
-
-            #sys.exit(1)
 
 ###################################################################################################
 for name in ad:
@@ -51,28 +46,20 @@ for name in ad:
         where_are_NaNs = numpy.isnan(profile)
         profile[where_are_NaNs] = 0
         data.append({
-            #"x": len(profile),
-            "y": profile.tolist(),
+            "y": numpy.round(profile, 4).tolist(),
             "name": config["_inputs"][idx]["meta"]["subject"],
             "type": "scatter",
-            #"yaxis": "y_fa",
             "opacity": 0.3
         })
         idx+=1
+
     data.append({
-        #"x": len(all[0]),
-        "y": numpy.mean(all, axis=0).tolist(),
-        #"error_y": {
-        #    "type": "data",
-            "array": numpy.std(all, axis=0).tolist(),
-        #    "visislbe": True,
-        #},
+        "y": numpy.round(numpy.mean(all, axis=0), 4).tolist(),
         "name": "mean",
         "type": "scatter",
         "line": {
             "color": "black",
         },
-        #"yaxis": "y_fa",
     })
     plot = {}
     plot["type"] = "plotly"
@@ -97,28 +84,21 @@ for name in md:
         where_are_NaNs = numpy.isnan(profile)
         profile[where_are_NaNs] = 0
         data.append({
-            #"x": len(profile),
-            "y": profile.tolist(),
+            "y": numpy.round(profile, 4).tolist(),
             "name": config["_inputs"][idx]["meta"]["subject"],
             "type": "scatter",
-            #"yaxis": "y_md",
             "opacity": 0.3
         })
         idx+=1
+
     data.append({
-        #"x": len(all[0]),
-        "y": numpy.mean(all, axis=0).tolist(),
-        #"error_y": {
-        #    "type": "data",
-            "array": numpy.std(all, axis=0).tolist(),
-        #    "visislbe": True,
-        #},
+        "y": numpy.round(numpy.mean(all, axis=0), 4).tolist(),
+        "array": numpy.round(numpy.std(all, axis=0), 6).tolist(),
         "name": "mean",
         "type": "scatter",
         "line": {
             "color": "black",
         },
-        #"yaxis": "y_md",
     })
     plot = {}
     plot["type"] = "plotly"
@@ -139,3 +119,5 @@ product = {}
 product["brainlife"] = plots
 with open("product.json", "w") as fp:
     json.dump(product, fp)
+
+
