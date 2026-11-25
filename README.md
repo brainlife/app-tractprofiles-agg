@@ -10,7 +10,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
 </p>
 
-## 🧠 At a glance
+## At a glance
 
 <!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
 
@@ -20,12 +20,12 @@ Reads the CSV tract profiles in each input, collects AD, FA, MD and RD per tract
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/tractprofile-deprecated` |
-| 🐳 **Container** | `brainlife/mcr:neurodebian1604-r2017a` |
-| ⚙️ **Resources** | 1 CPUs |
-| 🔗 **Run it** | [doi.org/10.25663/bl.app.90](https://doi.org/10.25663/bl.app.90) |
+| **Inputs** | `neuro/tractprofile-deprecated` |
+| **Container** | `brainlife/mcr:neurodebian1604-r2017a` |
+| **Resources** | 1 CPUs |
+| **Run it** | [doi.org/10.25663/bl.app.90](https://doi.org/10.25663/bl.app.90) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
@@ -33,13 +33,13 @@ Reads the CSV tract profiles in each input, collects AD, FA, MD and RD per tract
 
 <!-- brainlife-app:end -->
 
-## 🚀 Running the App
+## Running the App
 
-### ☁️ On brainlife.io
+### On brainlife.io
 
 Open the App at [doi.org/10.25663/bl.app.90](https://doi.org/10.25663/bl.app.90), select several tract-profile datasets (`neuro/tractprofile-deprecated`, one per subject) from your project and press **Execute**. The group plots appear on the task page; the App archives no datasets. It works only on the deprecated tract-profile datatype.
 
-### 💻 Locally
+### Locally
 
 The App runs `aggregate.py` directly, so you need Python with [NumPy](https://numpy.org/); no container is used.
 
@@ -58,11 +58,11 @@ The App runs `aggregate.py` directly, so you need Python with [NumPy](https://nu
    ./main
    ```
 
-## 📦 Outputs
+## Outputs
 
 `product.json` holds two Plotly plots per tract (named after the CSV file): the across-subject mean FA profile and the mean MD profile, each with the standard deviation as error bars. Each CSV must have a header row, with AD, FA, MD and RD in columns 1, 3, 5 and 7; NaN values are treated as 0.
 
-## 📚 Citing
+## Citing
 
 > [!TIP]
 > If you use this App in your work, please cite the App, the software it builds on and brainlife.io (below). GitHub's **Cite this repository** button gives the App citation in APA and BibTeX.
@@ -71,11 +71,11 @@ The App runs `aggregate.py` directly, so you need Python with [NumPy](https://nu
 - Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
 - Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. *Scientific Data* 6:69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
 
-## 👥 Authors
+## Authors
 
 - Soichi Hayashi
 
-## 💰 Funding
+## Funding
 
 [![Wellcome-226486/Z/22/Z](https://img.shields.io/badge/Wellcome-226486%2FZ%2F22%2FZ-purple.svg)](https://wellcome.org/)
 [![NIH-NINDS-U24NS140384](https://img.shields.io/badge/NIH_NINDS-U24NS140384-green.svg)](https://reporter.nih.gov/project-details/11261037)
@@ -94,6 +94,6 @@ The App runs `aggregate.py` directly, so you need Python with [NumPy](https://nu
 
 <sub>brainlife.io is publicly funded, and acknowledging that support helps keep it running. This App was developed with support from Wellcome, the U.S. National Institutes of Health (including the BRAIN Initiative BRAIN CONNECTS program: The Axonal Projectome EXchange, U24NS140384, and the Center for Mesoscale Connectomics, UM1NS132207) and the U.S. National Science Foundation.</sub>
 
-## ⚖️ License
+## License
 
 MIT.
